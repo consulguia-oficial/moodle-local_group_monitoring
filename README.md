@@ -74,9 +74,9 @@ The plugin follows Moodle security practices by using:
 
 The plugin stores data in its own tables:
 
-- `local_groupmon_groups`
-- `local_groupmon_members`
-- `local_groupmon_polos`
+- `local_group_monitoring_groups`
+- `local_group_monitoring_members`
+- `local_group_monitoring_polos`
 
 Because those tables include user-related data, the plugin implements Moodle's Privacy API in `classes/privacy/provider.php`.
 
@@ -84,8 +84,8 @@ Because those tables include user-related data, the plugin implements Moodle's P
 
 Before submitting to the Moodle plugins directory, replace these placeholders with public project URLs:
 
-- Source control: `https://github.com/consulguia-oficial/local_group_monitoring/tree/master`
-- Issue tracker: `https://github.com/consulguia-oficial/local_group_monitoring/issues`
+- Source control: `https://github.com/consulguia-oficial/moodle-local_group_monitoring/tree/main`
+- Issue tracker: `https://github.com/consulguia-oficial/moodle-local_group_monitoring/issues`
 
 A public issue tracker is required for Moodle plugins directory approval.
 
