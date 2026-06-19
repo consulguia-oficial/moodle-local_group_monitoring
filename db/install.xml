@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="local/group_monitoring/db" VERSION="20260424" COMMENT="XMLDB file for local_group_monitoring" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd">
+<TABLES>
+<TABLE NAME="local_group_monitoring_groups" COMMENT="Groups created by plugin">
+<FIELDS>
+<FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+<FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"/>
+<FIELD NAME="courseid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+<FIELD NAME="polo" TYPE="char" LENGTH="150" NOTNULL="true" SEQUENCE="false"/>
+<FIELD NAME="tutorid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+<FIELD NAME="moodle_groupid" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+<FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+<FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+<FIELD NAME="usermodified" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+</FIELDS>
+<KEYS>
+<KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+<KEY NAME="courseid" TYPE="foreign" FIELDS="courseid" REFTABLE="course" REFFIELDS="id"/>
+</KEYS>
+<INDEXES>
+<INDEX NAME="courseid_polo" UNIQUE="false" FIELDS="courseid, polo"/>
+</INDEXES>
+</TABLE>
+<TABLE NAME="local_group_monitoring_members" COMMENT="Members of monitored groups">
+<FIELDS>
+<FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+<FIELD NAME="groupid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+<FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+<FIELD NAME="username" TYPE="char" LENGTH="100" NOTNULL="true" SEQUENCE="false"/>
+<FIELD NAME="added_via" TYPE="char" LENGTH="20" NOTNULL="true" SEQUENCE="false"/>
+<FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+<FIELD NAME="usermodified" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+</FIELDS>
+<KEYS>
+<KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+<KEY NAME="groupid" TYPE="foreign" FIELDS="groupid" REFTABLE="local_group_monitoring_groups" REFFIELDS="id"/>
+</KEYS>
+</TABLE>
+<TABLE NAME="local_group_monitoring_polos" COMMENT="Polos managed by plugin">
+<FIELDS>
+<FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+<FIELD NAME="name" TYPE="char" LENGTH="150" NOTNULL="true" SEQUENCE="false"/>
+<FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+<FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+<FIELD NAME="usermodified" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+</FIELDS>
+<KEYS>
+<KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+</KEYS>
+</TABLE>
+</TABLES>
+</XMLDB>
